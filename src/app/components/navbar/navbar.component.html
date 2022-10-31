@@ -1,8 +1,11 @@
 <mat-toolbar  class="navbar">
-    <img src="\assets\LogoMercadona.png" alt="" class="logo">
+    <img routerLink="/home" src="\assets\LogoMercadona.png" alt="" class="logo">
     <span>Mercadona</span>
     <span class="spacer"></span>
-    <button mat-button class="button" [routerLink]="['signin']">
+    <button mat-button class="logbutton" routerLink="/signin">
          Iniciar Sesion
     </button>
+    <button mat-button class="regbutton" routerLink="/signup">
+        Registarse
+   </button>
 </mat-toolbar>

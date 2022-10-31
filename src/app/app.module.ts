@@ -13,6 +13,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -25,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     TornillosComponent,
     NavbarComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

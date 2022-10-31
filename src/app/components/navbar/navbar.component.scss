@@ -10,12 +10,21 @@
     .logo {
         width: 50px;
         padding-right: 16px;
+        cursor: pointer;
     }
-    .button {
+    .regbutton {
         background-color: #009660;
-        padding: 4px 8px;
-        border-radius: 2px;
+        padding: 4px 16px;
+        border-radius: 24px;
         color: white;
+        margin-left: 16px;
+    }
+    .logbutton {
+        background-color: #1a1a1a;
+        padding: 4px 16px;
+        border-radius: 24px;
+        color: white;
+        margin-left: 16px;
     }
 }
 

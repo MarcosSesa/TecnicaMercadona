@@ -1,32 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
-
-
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
-export class SignInComponent implements OnInit {
-
-  public formGroup !: FormGroup;
-  
+export class SignUpComponent implements OnInit {
+  public formGroup!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private service: ServiceService,
     private snackBar: MatSnackBar,
     private router: Router
-
-    ) {
-   }
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
   }
-  signin() {
+  signup() {
     this.service
       .signUp(this.formGroup.value.name, this.formGroup.value.password)
       .subscribe( (res) => {
@@ -35,16 +29,15 @@ export class SignInComponent implements OnInit {
             duration: 3000
           });
         }else{
-          this.router.navigate(["home"])
+          this.router.navigateByUrl("/home")
         }
       });
   }
 
-  private buildForm(){
+  private buildForm() {
     this.formGroup = this.formBuilder.group({
-      name: "",
-      password:"",
+      name: '',
+      password: '',
     });
   }
-
 }
