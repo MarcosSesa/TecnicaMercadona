@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
             duration: 3000
           });
         }else{
-          this.router.navigateByUrl("/home")
+          this.router.navigateByUrl("/")
         }
       });
   }

@@ -28,14 +28,14 @@ export class SignInComponent implements OnInit {
   }
   signin() {
     this.service
-      .signUp(this.formGroup.value.name, this.formGroup.value.password)
+      .signIn(this.formGroup.value.name, this.formGroup.value.password)
       .subscribe( (res) => {
         if(res.error){
           this.snackBar.open('Ha sucedido un error', 'Aceptar', {
             duration: 3000
           });
         }else{
-          this.router.navigate(["home"])
+          this.router.navigateByUrl("/")
         }
       });
   }

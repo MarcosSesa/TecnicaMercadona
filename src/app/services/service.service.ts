@@ -19,5 +19,11 @@ export class ServiceService {
       password: password
     }))
   }
+  signIn(email:string, password:string): Observable<AuthResponse>{
+    return from(this.supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    }))
+  }
 
 }
