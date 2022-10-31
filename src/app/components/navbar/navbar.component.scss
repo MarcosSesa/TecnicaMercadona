@@ -1,0 +1,22 @@
+.navbar{ 
+    background-color: white;
+    padding: 40px 40px;
+    border-bottom: solid 3px #009660;
+
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+    .logo {
+        width: 50px;
+        padding-right: 16px;
+    }
+    .button {
+        background-color: #009660;
+        padding: 4px 8px;
+        border-radius: 2px;
+        color: white;
+    }
+}
+
+
