@@ -1,11 +1,17 @@
-<mat-toolbar  class="navbar">
-    <img routerLink="/" src="\assets\LogoMercadona.png" alt="" class="logo">
-    <span>Mercadona</span>
-    <span class="spacer"></span>
+<mat-toolbar class="navbar">
+  <img routerLink="/" src="\assets\LogoMercadona.png" alt="" class="logo" />
+  <span>Mercadona</span>
+  <span class="spacer"></span>
+  <div *ngIf="!session">
     <button mat-button class="logbutton" routerLink="/signin">
-         Iniciar Sesion
+      Iniciar Sesion
     </button>
     <button mat-button class="regbutton" routerLink="/signup">
-        Registarse
-   </button>
+      Registarse
+    </button>
+  </div>
+  <div *ngIf="session" class="user">
+    <h3>{{session.user.email}}</h3>
+    <button mat-button class="logoutbut" (click)="signOut()"><mat-icon fontIcon="logout"></mat-icon></button>
+  </div>
 </mat-toolbar>
