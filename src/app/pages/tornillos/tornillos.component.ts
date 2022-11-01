@@ -16,6 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TornillosComponent implements OnInit {
   displayedColumns = ['nombre', 'precio', 'formato', 'marca', 'acciones'];
   tornillos!: Itornillo[];
+  loading:boolean=false;
 
 
   constructor(
@@ -36,6 +37,7 @@ export class TornillosComponent implements OnInit {
   private getTornillos() {
     this.service.getTornilos().subscribe((res) => {
       this.tornillos = res.data as Itornillo[];
+      this.loading=true;
     });
   }
   openCreateDialog(){
@@ -44,7 +46,7 @@ export class TornillosComponent implements OnInit {
     });
     dialogref.afterClosed().subscribe( (res) => {
       if (res) {
-       this.service.createtornillo(res).subscribe( () => {
+       this.service.createtornillo(res).subscribe ( () => {
         this.getTornillos();
        })
       }

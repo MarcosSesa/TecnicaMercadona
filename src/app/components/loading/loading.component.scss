@@ -1,0 +1,12 @@
+.spinner{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .mat-spinner {
+        ::ng-deep circle {
+            stroke: #009660;
+        }
+    }
+}
+

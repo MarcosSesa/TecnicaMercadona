@@ -22,6 +22,8 @@ import { DeletedialogComponent } from './components/dialogs/deletedialog/deleted
 import { CreatedialogComponent } from './components/dialogs/createdialog/createdialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { LoadingComponent } from './components/loading/loading.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -40,7 +42,8 @@ import {MatInputModule} from '@angular/material/input';
     SignInComponent,
     SignUpComponent,
     DeletedialogComponent,
-    CreatedialogComponent
+    CreatedialogComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
