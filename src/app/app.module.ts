@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatPaginatorModule} from '@angular/material/paginator'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,6 +17,8 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeletedialogComponent } from './components/dialogs/deletedialog/deletedialog.component';
 
 
 
@@ -32,7 +34,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     TornillosComponent,
     NavbarComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    DeletedialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTableModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

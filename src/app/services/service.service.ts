@@ -27,9 +27,6 @@ export class ServiceService {
       password: password
     }))
   }
-  getUser() {
-    return from(this.supabase.auth.getUser())
-  }
 
   signOut(){
     return from(this.supabase.auth.signOut())
@@ -42,6 +39,12 @@ export class ServiceService {
     return from(this.supabase
       .from('tornillos')
       .select('*',{ count: 'exact' }))
+  }
+  deletetornillo(column:string,id:number){
+    return from(this.supabase
+    .from('tornillos')
+    .delete()
+    .eq(column, id))
   }
 
 }

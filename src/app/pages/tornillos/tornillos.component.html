@@ -34,7 +34,7 @@
 
           <ng-container  matColumnDef="acciones">
             <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef> Acciones </th>
-            <td mat-cell class="cell" *matCellDef="let tornillo"><button class="button" mat-button><mat-icon class="icon" fontIcon="delete"></mat-icon></button></td>
+            <td mat-cell class="cell" *matCellDef="let tornillo"><button class="button" mat-button (click)="openDeleteDialog(tornillo.id)"><mat-icon class="icon" fontIcon="delete"></mat-icon></button></td>
             <td mat-footer-cell *matFooterCellDef> Total </td>
           </ng-container>
       
@@ -42,8 +42,9 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
         </table>
-        
+
       </section>
+
       <footer class="footer">
             <button class="button" mat-button>Añadir producto</button>
           </footer>

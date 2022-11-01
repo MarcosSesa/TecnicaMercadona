@@ -1,0 +1,24 @@
+
+.dialog{
+   
+    padding: 16px;
+    .tittle{
+        font-size: 12px;
+    }
+    .nobut{
+        padding: 4px 26px;
+        background-color: rgb(230, 230, 230);
+    }
+    .yesbut{
+        padding: 4px 26px;
+        background-color:#009660;
+        color: white;
+    }
+    .question{
+        width: 100%;
+        text-align: left;
+        padding-top: 8px;
+    }
+
+    
+}
