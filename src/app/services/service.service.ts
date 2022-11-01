@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
-import { AuthResponse, createClient } from "@supabase/supabase-js";
-import { Observable, filter, map, from } from 'rxjs';
+import {  AuthResponse, createClient, Session, UserResponse } from "@supabase/supabase-js";
+import { Observable,from } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +15,28 @@ export class ServiceService {
   supabase = createClient(this.supabaseUrl, this.supabaseKey)
   constructor() { }
   
-  signUp(email:string, password:string): Observable<AuthResponse>{
+  signUp(email:string, password:string) {
     return from(this.supabase.auth.signUp({
       email: email,
       password: password
     }))
   }
-  signIn(email:string, password:string): Observable<AuthResponse>{
+  signIn(email:string, password:string) {
     return from(this.supabase.auth.signInWithPassword({
       email: email,
       password: password
     }))
+  }
+  getUser() {
+    return from(this.supabase.auth.getUser())
+  }
+
+  signOut(){
+    return from(this.supabase.auth.signOut())
+  }
+
+  getSession() {
+    return from(this.supabase.auth.getSession())
   }
 
 }
