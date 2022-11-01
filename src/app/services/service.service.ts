@@ -1,3 +1,4 @@
+import { Itornillo } from './../interfaces/Itornillo';
 
 import { Injectable } from '@angular/core';
 import {  AuthResponse, createClient, Session, UserResponse } from "@supabase/supabase-js";
@@ -45,6 +46,15 @@ export class ServiceService {
     .from('tornillos')
     .delete()
     .eq(column, id))
+  }
+  createtornillo(tornillo:Itornillo){
+    console.log(tornillo);
+    
+    return from(this.supabase
+      .from('tornillos')
+      .insert([
+        { nombre: tornillo.nombre , precio: tornillo.precio, formato: tornillo.formato , marca: tornillo.marca  },
+      ]))
   }
 
 }

@@ -1,3 +1,4 @@
+import { CreatedialogComponent } from './../../components/dialogs/createdialog/createdialog.component';
 import { DeletedialogComponent } from './../../components/dialogs/deletedialog/deletedialog.component';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
@@ -15,6 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TornillosComponent implements OnInit {
   displayedColumns = ['nombre', 'precio', 'formato', 'marca', 'acciones'];
   tornillos!: Itornillo[];
+
 
   constructor(
     private service: ServiceService,
@@ -36,6 +38,20 @@ export class TornillosComponent implements OnInit {
       this.tornillos = res.data as Itornillo[];
     });
   }
+  openCreateDialog(){
+    const dialogref = this.dialog.open(CreatedialogComponent,{
+      width: '900px',
+    });
+    dialogref.afterClosed().subscribe( (res) => {
+      if (res) {
+       this.service.createtornillo(res).subscribe( () => {
+        this.getTornillos();
+       })
+      }
+      
+    })
+  }
+
   openDeleteDialog(id:number){
     const dialogref = this.dialog.open(DeletedialogComponent,{
       width: '600px',

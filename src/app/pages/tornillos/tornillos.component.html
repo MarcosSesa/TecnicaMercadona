@@ -10,32 +10,39 @@
           <ng-container  matColumnDef="nombre">
             <th mat-header-cell class="headercolumn" cdkDrag  *matHeaderCellDef> Nombre </th>
             <td mat-cell class="firstcell" *matCellDef="let tornillo"> {{tornillo.nombre}} </td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
+            <td mat-footer-cell *matFooterCellDef> Total {{tornillos.length}}</td>
           </ng-container>
       
           
           <ng-container  matColumnDef="precio">
             <th mat-header-cell class="headercolumn" cdkDrag  *matHeaderCellDef> Precio </th>
             <td mat-cell class="cell" *matCellDef="let tornillo"> {{tornillo.precio}} </td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
       
           <ng-container  matColumnDef="formato">
             <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef> Formato </th>
             <td mat-cell class="cell" *matCellDef="let tornillo"> {{tornillo.formato}} </td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
       
           <ng-container  matColumnDef="marca">
             <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef> Marca </th>
             <td mat-cell class="cell" *matCellDef="let tornillo"> {{tornillo.marca}} </td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
 
           <ng-container  matColumnDef="acciones">
             <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef> Acciones </th>
             <td mat-cell class="cell" *matCellDef="let tornillo"><button class="button" mat-button (click)="openDeleteDialog(tornillo.id)"><mat-icon class="icon" fontIcon="delete"></mat-icon></button></td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
+            <td mat-footer-cell *matFooterCellDef>
+                <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+  </mat-paginator>
+  
+            </td>
           </ng-container>
       
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
@@ -46,6 +53,6 @@
       </section>
 
       <footer class="footer">
-            <button class="button" mat-button>Añadir producto</button>
+            <button class="button" (click)="openCreateDialog()" mat-button>Añadir producto</button>
           </footer>
 

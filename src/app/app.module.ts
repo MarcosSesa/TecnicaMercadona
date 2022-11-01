@@ -19,6 +19,10 @@ import {MatTableModule} from '@angular/material/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DeletedialogComponent } from './components/dialogs/deletedialog/deletedialog.component';
+import { CreatedialogComponent } from './components/dialogs/createdialog/createdialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -35,7 +39,8 @@ import { DeletedialogComponent } from './components/dialogs/deletedialog/deleted
     NavbarComponent,
     SignInComponent,
     SignUpComponent,
-    DeletedialogComponent
+    DeletedialogComponent,
+    CreatedialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ import { DeletedialogComponent } from './components/dialogs/deletedialog/deleted
     MatTableModule,
     DragDropModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

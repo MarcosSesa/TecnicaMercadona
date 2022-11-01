@@ -1,6 +1,7 @@
 import { Session } from '@supabase/supabase-js';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private Service:ServiceService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class NavbarComponent implements OnInit {
   signOut(){
     this.Service.signOut().subscribe( (res) => {
       if (!res.error) {
+        this.router.navigateByUrl("/")
         this.getSession();
       }
     } )

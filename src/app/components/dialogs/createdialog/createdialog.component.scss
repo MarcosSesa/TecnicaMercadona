@@ -1,0 +1,49 @@
+
+.dialog{
+   
+    padding: 16px;
+    .tittle{
+        font-size: 24px;
+    }
+    .dialogcontent{
+        width: 100%;
+        label{
+            font-size: 12px;
+            margin-top: 8px;
+            width: 100%;
+            
+            
+        }
+        .col{
+            width: 50%;
+        }
+        input{
+            height: 40px;
+            border: solid 0.5px rgb(172, 172, 172);
+            border-radius: 4px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .priceinput{
+            width: 100%;
+        }
+        .fullwidthinput{
+            width:100%;
+        }
+        .dropinput{
+            width: 100%;
+        }
+        
+    }
+    .nobut{
+        padding: 4px 26px;
+        background-color: rgb(230, 230, 230);
+    }
+    .yesbut{
+        padding: 4px 26px;
+        background-color:#009660;
+        color: white;
+    }
+
+    
+}

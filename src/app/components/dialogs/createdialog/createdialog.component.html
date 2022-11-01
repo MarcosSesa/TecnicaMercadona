@@ -1,0 +1,48 @@
+<div class="dialog">
+  <h1 class="tittle">Nuevo producto</h1>
+  <div mat-dialog-content class="dialogcontent">
+    <form [formGroup]="formGroup">
+      <label for="name">Nombre</label>
+      <input
+        class="fullwidthinput"
+        name="nombre"
+        formControlName="nombre"
+        type="text"
+      />
+      <div class="col">
+        <label for="precio">Precio</label>
+        <input
+          class="priceinput"
+          name="precio"
+          formControlName="precio"
+          type="number"
+        />
+      </div>
+      <div class="col">
+        <label for="formato">Formato</label>
+        <mat-form-field class="dropinput">
+          <mat-label>Seleciona un valor</mat-label>
+          <mat-select formControlName="formato">
+            <mat-option *ngFor="let formato of formatos" [value]="formato">{{
+              formato
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <label for="marca">Marca</label>
+      <input
+        class="fullwidthinput"
+        name="marca"
+        formControlName="marca"
+        type="text"
+      />
+    </form>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button class="nobut" (click)="onClickNo()">Cancelar</button>
+    <button mat-button class="yesbut" [mat-dialog-close]=formGroup.value>
+      Guardar
+    </button>
+  </div>
+</div>
