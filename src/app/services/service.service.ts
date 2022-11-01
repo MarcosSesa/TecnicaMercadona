@@ -38,5 +38,10 @@ export class ServiceService {
   getSession() {
     return from(this.supabase.auth.getSession())
   }
+  getTornilos(){
+    return from(this.supabase
+      .from('tornillos')
+      .select('*',{ count: 'exact' }))
+  }
 
 }

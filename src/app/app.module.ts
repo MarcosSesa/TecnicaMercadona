@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 
 
@@ -40,7 +43,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

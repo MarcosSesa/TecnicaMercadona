@@ -1,6 +1,5 @@
 import { Session } from '@supabase/supabase-js';
 import { Component, OnInit } from '@angular/core';
-import { User} from '@supabase/supabase-js';
 import { ServiceService } from 'src/app/services/service.service';
 
 @Component({

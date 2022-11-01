@@ -1,0 +1,42 @@
+.footer {
+  border-top: #009660 solid 3px;
+  margin-top: 50px;
+  text-align: right;
+
+  .button {
+    margin: 8px 8px;
+    background-color: #009660;
+    color: white;
+  }
+}
+
+.container {
+  align-items: center;
+  height: 650px;
+  overflow: auto;
+  margin: auto;
+  width: 1500px;
+  margin-top: 50px;
+
+  .headercolumn {
+    cursor: pointer;
+    color: white;
+    background-color: #009660;
+    text-align: center;
+  }
+  .cell {
+    padding: 24px 0px;
+    .icon:hover {
+      color: rgb(226, 40, 40);
+    }
+  }
+
+  .firstcell {
+    padding-left: 12px;
+  }
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-export interface Tornillo {
+export interface Itornillo {
     id: number;
     nombre: string;
     precio: string;
