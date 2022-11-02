@@ -26,9 +26,13 @@ export class SignUpComponent implements OnInit {
       .signUp(this.formGroup.value.name, this.formGroup.value.password)
       .subscribe((res) => {
         if (res.error) {
-          this.snackBar.open('Comprueba el correo y que la contraseña tenga minimo 6 caracteres', 'Aceptar', {
-            duration: 3000,
-          });
+          this.snackBar.open(
+            'Comprueba el correo y que la contraseña tenga minimo 6 caracteres',
+            'Aceptar',
+            {
+              duration: 3000,
+            }
+          );
         } else {
           this.router.navigateByUrl('/');
         }

@@ -12,7 +12,7 @@
 
 .container {
   align-items: center;
-  height: 700px;
+  height: 690px;
   overflow: auto;
   margin: auto;
   width: 1500px;
@@ -38,7 +38,7 @@
     padding: 14px 0px;
     border-left: solid 1px rgb(238, 238, 238);
     border-right: solid 1px rgb(238, 238, 238);
-    .icon:hover {
+    .button:hover {
       color: rgb(226, 40, 40);
     }
   }

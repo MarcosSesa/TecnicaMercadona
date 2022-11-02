@@ -9,26 +9,25 @@
         formControlName="nombre"
         type="text"
       />
-      
-        <label for="precio">Precio</label>
-        <input
-          class="fullwidthinput"
-          name="precio"
-          formControlName="precio"
-          type="number"
-        />
-      
-      
-        <label for="formato">Formato</label>
-        <mat-form-field class="fullwidthinput">
-          <mat-label>Seleciona un valor</mat-label>
-          <mat-select formControlName="formato">
-            <mat-option *ngFor="let formato of formatos" [value]="formato">{{
-              formato
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      
+
+      <label for="precio">Precio</label>
+      <input
+        class="fullwidthinput"
+        name="precio"
+        formControlName="precio"
+        type="number"
+      />
+
+      <label for="formato">Formato</label>
+      <mat-form-field class="fullwidthinput">
+        <mat-label>Seleciona un valor</mat-label>
+        <mat-select formControlName="formato">
+          <mat-option *ngFor="let formato of formatos" [value]="formato">{{
+            formato
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <label for="marca">Marca</label>
       <input
         class="fullwidthinput"
@@ -41,7 +40,7 @@
 
   <div mat-dialog-actions>
     <button mat-button class="nobut" (click)="onClickNo()">Cancelar</button>
-    <button mat-button class="yesbut" [mat-dialog-close]=formGroup.value>
+    <button mat-button class="yesbut" [mat-dialog-close]="formGroup.value">
       Guardar
     </button>
   </div>

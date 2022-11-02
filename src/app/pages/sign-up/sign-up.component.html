@@ -1,22 +1,18 @@
 <app-navbar></app-navbar>
 <div class="signin">
   <div class="container">
-    <h1 class="tittle" mat-dialog-title>Registarse</h1>
+    <h1 class="tittle" mat-dialog-title>Registrarse</h1>
     <div mat-dialog-content>
       <form [formGroup]="formGroup">
         <label for="email">Email</label>
         <input name="email" formControlName="name" type="text" />
         <label for="password">Password</label>
-        <input
-          name="password"
-          formControlName="password"
-          type="password"
-        />
+        <input name="password" formControlName="password" type="password" />
       </form>
     </div>
     <div class="but-container">
       <button mat-button class="button" (click)="signup()">Registrarse</button>
-      <p>Ya tienes una cueanta? <a routerLink="/signin">Iniciar sesión</a></p>
+      <p>Ya tienes una cuenta? <a routerLink="/signin">Iniciar sesión</a></p>
     </div>
   </div>
 </div>

@@ -20,9 +20,14 @@ export class TornillosComponent implements OnInit {
   tornillos!: Itornillo[];
   loading: boolean = false;
   indexof: number = 0;
-  indexto: number = 9;
+  indexto: number = 10;
+  totaltornillos!: number;
 
-  constructor(private service: ServiceService, private dialog: MatDialog, private router: Router) {}
+  constructor(
+    private service: ServiceService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getTornillos();
@@ -37,8 +42,9 @@ export class TornillosComponent implements OnInit {
   }
   private getTornillos() {
     this.service
-      .getTornilosByPag(this.indexof, this.indexto)
+      .getTornilosByPag(this.indexof, this.indexto-1)
       .subscribe((res) => {
+        this.totaltornillos = res.count as number;
         this.tornillos = res.data as Itornillo[];
         this.dataSource = new MatTableDataSource(this.tornillos);
         this.loading = true;
@@ -77,11 +83,11 @@ export class TornillosComponent implements OnInit {
     });
   }
 
-  comprobarsesion(){
-    this.service.getSession().subscribe( (res) => {
+  comprobarsesion() {
+    this.service.getSession().subscribe((res) => {
       if (res.data.session == null) {
-        this.router.navigateByUrl("/signin");
+        this.router.navigateByUrl('/signin');
       }
-    })
+    });
   }
 }
