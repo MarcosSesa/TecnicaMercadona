@@ -4,19 +4,17 @@
     <h1 class="tittle" mat-dialog-title>Iniciar sesión</h1>
     <div mat-dialog-content>
       <form [formGroup]="formGroup">
-        <label for="name">Name</label>
+        <label for="email">Email</label>
         <input
-          class="searchinput"
-          name="name"
+          name="email"
           formControlName="name"
           type="text"
         />
         <label for="password">Password</label>
         <input
-          class="searchinput"
           name="password"
           formControlName="password"
-          type="text"
+          type="password"
         />
       </form>
     </div>

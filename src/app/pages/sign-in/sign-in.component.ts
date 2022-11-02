@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
       .signIn(this.formGroup.value.name, this.formGroup.value.password)
       .subscribe((res) => {
         if (res.error) {
-          this.snackBar.open('Ha sucedido un error', 'Aceptar', {
+          this.snackBar.open('Usuario o contraseña incorrectos', 'Aceptar', {
             duration: 3000,
           });
         } else {

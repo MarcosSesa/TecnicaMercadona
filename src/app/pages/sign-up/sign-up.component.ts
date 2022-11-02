@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   public formGroup!: FormGroup;
+  hide = true;
   constructor(
     private formBuilder: FormBuilder,
     private service: ServiceService,
@@ -25,7 +26,7 @@ export class SignUpComponent implements OnInit {
       .signUp(this.formGroup.value.name, this.formGroup.value.password)
       .subscribe((res) => {
         if (res.error) {
-          this.snackBar.open('Ha sucedido un error', 'Aceptar', {
+          this.snackBar.open('Comprueba el correo y que la contraseña tenga minimo 6 caracteres', 'Aceptar', {
             duration: 3000,
           });
         } else {

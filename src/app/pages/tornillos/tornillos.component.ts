@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CreatedialogComponent } from './../../components/dialogs/createdialog/createdialog.component';
@@ -21,10 +22,11 @@ export class TornillosComponent implements OnInit {
   indexof: number = 0;
   indexto: number = 9;
 
-  constructor(private service: ServiceService, private dialog: MatDialog) {}
+  constructor(private service: ServiceService, private dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {
     this.getTornillos();
+    this.comprobarsesion();
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
@@ -73,5 +75,13 @@ export class TornillosComponent implements OnInit {
         });
       }
     });
+  }
+
+  comprobarsesion(){
+    this.service.getSession().subscribe( (res) => {
+      if (res.data.session == null) {
+        this.router.navigateByUrl("/signin");
+      }
+    })
   }
 }
