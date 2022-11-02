@@ -4,24 +4,20 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
 
-
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
+  public formGroup!: FormGroup;
 
-  public formGroup !: FormGroup;
-  
   constructor(
     private formBuilder: FormBuilder,
     private service: ServiceService,
     private snackBar: MatSnackBar,
     private router: Router
-
-    ) {
-   }
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -29,22 +25,21 @@ export class SignInComponent implements OnInit {
   signin() {
     this.service
       .signIn(this.formGroup.value.name, this.formGroup.value.password)
-      .subscribe( (res) => {
-        if(res.error){
+      .subscribe((res) => {
+        if (res.error) {
           this.snackBar.open('Ha sucedido un error', 'Aceptar', {
-            duration: 3000
+            duration: 3000,
           });
-        }else{
-          this.router.navigateByUrl("/")
+        } else {
+          this.router.navigateByUrl('/');
         }
       });
   }
 
-  private buildForm(){
+  private buildForm() {
     this.formGroup = this.formBuilder.group({
-      name: "",
-      password:"",
+      name: '',
+      password: '',
     });
   }
-
 }

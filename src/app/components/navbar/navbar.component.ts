@@ -6,35 +6,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  session!: Session | null;
 
-  session!:Session | null;
-
-  constructor(
-    private Service:ServiceService,
-    private router:Router,
-  ) { }
+  constructor(private Service: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.getSession();
   }
-  private getSession(){
-    this.Service.getSession().subscribe( (res) => {
+  private getSession() {
+    this.Service.getSession().subscribe((res) => {
       if (!res.error) {
-        this.session = res.data.session   
+        this.session = res.data.session;
       }
-    } )
+    });
   }
-  signOut(){
-    this.Service.signOut().subscribe( (res) => {
+  signOut() {
+    this.Service.signOut().subscribe((res) => {
       if (!res.error) {
-        this.router.navigateByUrl("/")
+        this.router.navigateByUrl('/');
         this.getSession();
       }
-    } )
+    });
   }
-  
-
 }

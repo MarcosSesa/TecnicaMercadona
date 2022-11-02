@@ -9,7 +9,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class CreatedialogComponent implements OnInit {
   public formGroup!: FormGroup;
-  formatos: string[] = ['maiores oficina', 'quia delenti', 'Onion', 'harum at', 'modi veniam', 'Eos tenetur'];
+  formatos: string[] = [
+    'maiores oficina',
+    'quia delenti',
+    'Onion',
+    'harum at',
+    'modi veniam',
+    'Eos tenetur',
+  ];
   constructor(
     private formBuilder: FormBuilder,
     public dialogref: MatDialogRef<CreatedialogComponent>

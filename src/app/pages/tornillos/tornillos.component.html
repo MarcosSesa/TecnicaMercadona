@@ -13,7 +13,7 @@
     >
       <ng-container matColumnDef="nombre">
         <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
-            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
           Nombre
         </th>
         <td mat-cell class="firstcell" *matCellDef="let tornillo">
@@ -24,8 +24,8 @@
 
       <ng-container matColumnDef="precio">
         <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
-            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
-            Precio
+          <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          Precio
         </th>
         <td mat-cell class="cell" *matCellDef="let tornillo">
           {{ tornillo.precio }}
@@ -35,8 +35,8 @@
 
       <ng-container matColumnDef="formato">
         <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
-            Formato
+          <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          Formato
         </th>
         <td mat-cell class="cell" *matCellDef="let tornillo">
           {{ tornillo.formato }}
@@ -46,8 +46,8 @@
 
       <ng-container matColumnDef="marca">
         <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
-            Marca
+          <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          Marca
         </th>
         <td mat-cell class="cell" *matCellDef="let tornillo">
           {{ tornillo.marca }}
@@ -57,8 +57,8 @@
 
       <ng-container matColumnDef="acciones">
         <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
-            Acciones
+          <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          Acciones
         </th>
         <td mat-cell class="cell" *matCellDef="let tornillo">
           <button
@@ -69,18 +69,26 @@
             <mat-icon class="icon" fontIcon="delete"></mat-icon>
           </button>
         </td>
-        <td mat-footer-cell  class="paginator" *matFooterCellDef>
-            <mat-paginator  [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" (page)="OnPageChange($event)"> </mat-paginator>
+        <td mat-footer-cell class="paginator" *matFooterCellDef>
+          <mat-paginator
+            [length]="100"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page"
+            (page)="OnPageChange($event)"
+          >
+          </mat-paginator>
         </td>
       </ng-container>
 
-      
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr class="row" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr
+        class="row"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
     </table>
-    
   </section>
 
   <footer class="footer">

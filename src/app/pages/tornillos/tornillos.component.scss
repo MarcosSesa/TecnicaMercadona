@@ -10,7 +10,6 @@
   }
 }
 
-
 .container {
   align-items: center;
   height: 700px;
@@ -18,9 +17,8 @@
   margin: auto;
   width: 1500px;
   margin-top: 50px;
-  
 
-  .row:hover{
+  .row:hover {
     background-color: rgb(238, 238, 238);
   }
 
@@ -33,13 +31,13 @@
     border-right: solid 1px #017e50;
     border-left: solid 1px #017e50;
   }
-  .paginator{
+  .paginator {
     width: 450px;
   }
   .cell {
     padding: 14px 0px;
-    border-left:solid  1px  rgb(238, 238, 238);
-    border-right:solid  1px  rgb(238, 238, 238);
+    border-left: solid 1px rgb(238, 238, 238);
+    border-right: solid 1px rgb(238, 238, 238);
     .icon:hover {
       color: rgb(226, 40, 40);
     }

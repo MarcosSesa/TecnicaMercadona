@@ -23,13 +23,13 @@ export class SignUpComponent implements OnInit {
   signup() {
     this.service
       .signUp(this.formGroup.value.name, this.formGroup.value.password)
-      .subscribe( (res) => {
-        if(res.error){
+      .subscribe((res) => {
+        if (res.error) {
           this.snackBar.open('Ha sucedido un error', 'Aceptar', {
-            duration: 3000
+            duration: 3000,
           });
-        }else{
-          this.router.navigateByUrl("/")
+        } else {
+          this.router.navigateByUrl('/');
         }
       });
   }

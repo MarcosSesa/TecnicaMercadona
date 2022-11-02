@@ -1,18 +1,30 @@
 <app-navbar></app-navbar>
 <div class="signin">
-    <div class="container">
-        <h1 class="tittle" mat-dialog-title>Iniciar sesión</h1>    
-        <div mat-dialog-content>
-            <form [formGroup]="formGroup">
-                <label for="name">Name</label>
-                <input class="searchinput" name="name" formControlName="name" type="text" />
-                <label for="password">Password</label>
-                <input class="searchinput" name="password" formControlName="password" type="text" />
-              </form>
-        </div>
-        <div>
-            <button mat-button class="button" (click)="signin()">Iniciar Sesion</button>
-            <p>Aun no tienes una cueanta? <a routerLink="/signup">Registarse</a></p>
-        </div>
+  <div class="container">
+    <h1 class="tittle" mat-dialog-title>Iniciar sesión</h1>
+    <div mat-dialog-content>
+      <form [formGroup]="formGroup">
+        <label for="name">Name</label>
+        <input
+          class="searchinput"
+          name="name"
+          formControlName="name"
+          type="text"
+        />
+        <label for="password">Password</label>
+        <input
+          class="searchinput"
+          name="password"
+          formControlName="password"
+          type="text"
+        />
+      </form>
     </div>
+    <div>
+      <button mat-button class="button" (click)="signin()">
+        Iniciar Sesion
+      </button>
+      <p>Aun no tienes una cueanta? <a routerLink="/signup">Registarse</a></p>
+    </div>
+  </div>
 </div>
