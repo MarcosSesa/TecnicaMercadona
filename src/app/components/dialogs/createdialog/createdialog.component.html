@@ -9,18 +9,18 @@
         formControlName="nombre"
         type="text"
       />
-      <div class="col">
+      
         <label for="precio">Precio</label>
         <input
-          class="priceinput"
+          class="fullwidthinput"
           name="precio"
           formControlName="precio"
           type="number"
         />
-      </div>
-      <div class="col">
+      
+      
         <label for="formato">Formato</label>
-        <mat-form-field class="dropinput">
+        <mat-form-field class="fullwidthinput">
           <mat-label>Seleciona un valor</mat-label>
           <mat-select formControlName="formato">
             <mat-option *ngFor="let formato of formatos" [value]="formato">{{
@@ -28,7 +28,7 @@
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
+      
       <label for="marca">Marca</label>
       <input
         class="fullwidthinput"

@@ -10,6 +10,7 @@
   }
 }
 
+
 .container {
   align-items: center;
   height: 700px;
@@ -17,17 +18,28 @@
   margin: auto;
   width: 1500px;
   margin-top: 50px;
+  
+
+  .row:hover{
+    background-color: rgb(238, 238, 238);
+  }
 
   .headercolumn {
-    cursor: pointer;
+    cursor: move;
     color: white;
     background-color: #009660;
-    text-align: center;
     font-size: 16px;
+    text-align: center;
+    border-right: solid 1px #017e50;
+    border-left: solid 1px #017e50;
   }
-  
+  .paginator{
+    width: 450px;
+  }
   .cell {
-    padding: 24px 0px;
+    padding: 14px 0px;
+    border-left:solid  1px  rgb(238, 238, 238);
+    border-right:solid  1px  rgb(238, 238, 238);
     .icon:hover {
       color: rgb(226, 40, 40);
     }

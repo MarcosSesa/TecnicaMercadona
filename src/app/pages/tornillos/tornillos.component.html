@@ -3,80 +3,89 @@
 <app-loading *ngIf="!loading"></app-loading>
 
 <div *ngIf="loading">
-    <section class="container mat-elevation-z2" tabindex="0">
-        <table
-          mat-table
-          [dataSource]="tornillos"
-          cdkDropList
-          cdkDropListOrientation="horizontal"
-          (cdkDropListDropped)="drop($event)"
-        >
-          <ng-container matColumnDef="nombre">
-            <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
-              Nombre
-            </th>
-            <td mat-cell class="firstcell" *matCellDef="let tornillo">
-              {{ tornillo.nombre }}
-            </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
-          </ng-container>
-      
-          <ng-container matColumnDef="precio">
-            <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
-              Precio
-            </th>
-            <td mat-cell class="cell" *matCellDef="let tornillo">
-              {{ tornillo.precio }}
-            </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-      
-          <ng-container matColumnDef="formato">
-            <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-              Formato
-            </th>
-            <td mat-cell class="cell" *matCellDef="let tornillo">
-              {{ tornillo.formato }}
-            </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-      
-          <ng-container matColumnDef="marca">
-            <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-              Marca
-            </th>
-            <td mat-cell class="cell" *matCellDef="let tornillo">
-              {{ tornillo.marca }}
-            </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-      
-          <ng-container matColumnDef="acciones">
-            <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
-              Acciones
-            </th>
-            <td mat-cell class="cell" *matCellDef="let tornillo">
-              <button
-                class="button"
-                mat-button
-                (click)="openDeleteDialog(tornillo.id)"
-              >
-                <mat-icon class="icon" fontIcon="delete"></mat-icon>
-              </button>
-            </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-          <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
-        </table>
-      </section>
-      
-      <footer class="footer">
-        <button class="button" (click)="openCreateDialog()" mat-button>
-          Añadir producto
-        </button>
-      </footer>
-</div>
+  <section class="container mat-elevation-z0" tabindex="0">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
+            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+          Nombre
+        </th>
+        <td mat-cell class="firstcell" *matCellDef="let tornillo">
+          {{ tornillo.nombre }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell class="headercolumn" cdkDrag *matHeaderCellDef>
+            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+            Precio
+        </th>
+        <td mat-cell class="cell" *matCellDef="let tornillo">
+          {{ tornillo.precio }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container matColumnDef="formato">
+        <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
+            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+            Formato
+        </th>
+        <td mat-cell class="cell" *matCellDef="let tornillo">
+          {{ tornillo.formato }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container matColumnDef="marca">
+        <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
+            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+            Marca
+        </th>
+        <td mat-cell class="cell" *matCellDef="let tornillo">
+          {{ tornillo.marca }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell cdkDrag class="headercolumn" *matHeaderCellDef>
+            <mat-icon class="icon" fontIcon="drag_indicator"></mat-icon>
+            Acciones
+        </th>
+        <td mat-cell class="cell" *matCellDef="let tornillo">
+          <button
+            class="button"
+            mat-button
+            (click)="openDeleteDialog(tornillo.id)"
+          >
+            <mat-icon class="icon" fontIcon="delete"></mat-icon>
+          </button>
+        </td>
+        <td mat-footer-cell  class="paginator" *matFooterCellDef>
+            <mat-paginator  [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" (page)="OnPageChange($event)"> </mat-paginator>
+        </td>
+      </ng-container>
+
+      
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr class="row" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+    </table>
+    
+  </section>
+
+  <footer class="footer">
+    <button class="button" (click)="openCreateDialog()" mat-button>
+      Añadir producto
+    </button>
+  </footer>
+</div>

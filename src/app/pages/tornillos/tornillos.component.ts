@@ -1,6 +1,8 @@
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { CreatedialogComponent } from './../../components/dialogs/createdialog/createdialog.component';
 import { DeletedialogComponent } from './../../components/dialogs/deletedialog/deletedialog.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
 import { Itornillo } from 'src/app/interfaces/Itornillo';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -15,8 +17,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class TornillosComponent implements OnInit {
   displayedColumns = ['nombre', 'precio', 'formato', 'marca', 'acciones'];
+  dataSource!: MatTableDataSource<Itornillo>;
   tornillos!: Itornillo[];
   loading:boolean=false;
+  indexof:number =0;
+  indexto:number=9;
+ 
+
 
 
   constructor(
@@ -35,11 +42,21 @@ export class TornillosComponent implements OnInit {
     );
   }
   private getTornillos() {
-    this.service.getTornilos().subscribe((res) => {
-      this.tornillos = res.data as Itornillo[];
+    this.service.getTornilosByPag(this.indexof,this.indexto).subscribe((res) => {
+      this.tornillos = res.data as Itornillo[]
+      this.dataSource = new MatTableDataSource(this.tornillos);
       this.loading=true;
     });
   }
+
+  OnPageChange(event:PageEvent){
+    this.indexof= event.pageIndex*event.pageSize;
+    this.indexto=event.pageIndex*event.pageSize+event.pageSize;
+    this.getTornillos();
+    
+    
+  }
+
   openCreateDialog(){
     const dialogref = this.dialog.open(CreatedialogComponent,{
       width: '900px',

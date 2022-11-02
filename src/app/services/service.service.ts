@@ -41,6 +41,12 @@ export class ServiceService {
       .from('tornillos')
       .select('*',{ count: 'exact' }))
   }
+  getTornilosByPag(ofindex:number,toindex:number){
+    return from(this.supabase
+      .from('tornillos')
+      .select('*',{ count: 'exact' })
+      .range(ofindex,toindex))
+  }
   deletetornillo(column:string,id:number){
     return from(this.supabase
     .from('tornillos')
